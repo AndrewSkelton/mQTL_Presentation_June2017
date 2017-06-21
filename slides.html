@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Andrew Skelton">
+  <title>mQTLs in Cartilage</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">mQTLs in Cartilage</h1>
+  <p class="author">Andrew Skelton</p>
+  <p class="date">21st June 2017</p>
+</section>
+
+<section id="some-target-snps" class="level2">
+<h2>Some Target SNPs</h2>
+<ul>
+<li>Starting with 16 SNPs from John</li>
+<li>5 Were present on the array</li>
+<li>rs6766414, rs4867568, rs788748, rs11780978, rs10116772</li>
+<li>8 Matched on LD (using LDLink from NIH)</li>
+<li><code>&gt;</code>.7 LD + Within 1MB</li>
+<li>3 Were not matched</li>
+</ul>
+</section>
+<section id="ld-matched-missing-snps" class="level2">
+<h2>LD Matched Missing SNPs</h2>
+<table style="width:54%;">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 19%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">SNP_in</th>
+<th style="text-align: center;">Replacement</th>
+<th style="text-align: center;">Diff</th>
+<th style="text-align: center;">R2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">rs4764133 rs3850251 rs754106 rs2862851 rs10471753 rs496547 rs2521349 rs2820436</td>
+<td style="text-align: center;">rs11614333 rs4383836 rs9534442 rs1807968 rs6893396 rs598373 rs2521348 rs2605096</td>
+<td style="text-align: center;">368 7347 45099 4541 632 87914 3784 1220</td>
+<td style="text-align: center;">0.9457 0.8121 0.8548 0.9198 1 0.7818 0.9835 1</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="analysis-process" class="level2">
+<h2>Analysis Process</h2>
+<ul>
+<li>Take input SNPs and subset genotype data (dim 13x88)</li>
+<li>Subset Methylation data for 1MB span of SNPs (dim 4793x88)</li>
+<li>Run MatrixEQTL with Sex, Age, and SampleType as Covariates</li>
+<li>Significance considered at FDR<code>&lt;</code>0.05</li>
+</ul>
+</section>
+<section id="qq-plot" class="level2">
+<h2>QQ Plot</h2>
+<p><img src='img/John_Run_Jun2017_QQ.png' height=450></p>
+</section>
+<section id="mqtl-plec1pik3r1" class="level2">
+<h2>mQTL PLEC1;PIK3R1</h2>
+<p><img src='img/John_Run_Jun2017_1_qtlPlot.png' height=450></p>
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Transition style
+        transition: 'linear', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+              { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
