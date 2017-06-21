@@ -4,4 +4,4 @@ all:
 	--standalone --section-divs \
 	--variable theme="solarized" \
 	--variable transition="linear" \
-	slides.md -o slides.html
+	slides.md -o index.html
