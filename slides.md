@@ -51,6 +51,9 @@ mQTL PLEC1;PIK3R1
 <img src='img/John_Run_Jun2017_1_qtlPlot.png' height=450>
 
 
-mQTL PLEC1;PIK3R1
+Gene Structure
 --------------------
-<img src='img/John_Run_Jun2017_1_qtlPlot.png' height=450>
+<span style="color:red">SNP Position</span>
+<span style="color:blue">CpG Position</span>
+<span style="color:purple">PLEC1 Boundaries</span>
+<img src='img/PLEC1_Plot.png' height=450>
